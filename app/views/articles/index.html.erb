@@ -1,0 +1,17 @@
+<div class="title_container">
+  <h1>Articles' List</h1>
+</div>
+
+
+<div class="container">
+  <% @articles.each do |article| %>
+    <h3>
+      <%= link_to article.title, article_path(article) %>
+      <%= link_to article_path(article), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+        <i class="fa-solid fa-trash"></i>
+      <% end %>
+      <div class="content">
+        <%= article.content %>
+      </div>
+    </h3>
+  <% end %>
